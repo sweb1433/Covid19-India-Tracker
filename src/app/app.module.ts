@@ -13,13 +13,15 @@ import {MatSortModule} from '@angular/material/sort';
 import { DisctrictWiseComponent } from './disctrict-wise/disctrict-wise.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutComponent } from './about/about.component';
+import { HelpfulComponent } from './helpful/helpful.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 const routes = [
    {path: '', component : HomePageComponent}, 
   {path: 'district/:state', component : DisctrictWiseComponent},
-  {path: 'about', component : AboutComponent}
+  {path: 'about', component : AboutComponent},
+  {path: 'links', component : HelpfulComponent}
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes = [
     AppComponent,
     DisctrictWiseComponent,
     HomePageComponent,
-    AboutComponent
+    AboutComponent,
+    HelpfulComponent
   ],
   imports: [
     BrowserModule,
