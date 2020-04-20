@@ -61,7 +61,7 @@ a:hover, a:active {
     position: absolute;
     top: 100%;
     width: 1px;
-} 
+}
 
 .feature .feature-box .feature-content h4 {
     color: #0f0f0f;
@@ -71,12 +71,7 @@ a:hover, a:active {
     margin: 0 0 5px;
 }
 
-/* .aboutus-title {
-    color: whitesmoke;
-}
-.aboutus-text {
-    color: whitesmoke;
-} */
+
 .feature .feature-box .feature-content {
     float: left;
     padding-left: 28px;
@@ -94,7 +89,10 @@ a:hover, a:active {
     font-size: 13px;
     line-height: 22px;
 }
-.icon {
+/* .aboutus-title,h4,p.aboutus-text {
+    color : whitesmoke;
+} */
+/* .icon {
     color : #f4b841;
     padding:0px;
     font-size:40px;
@@ -106,6 +104,6 @@ a:hover, a:active {
     line-height: 70px;
     text-align: center;
     width: 70px;
-}
+} */
 
 .top-buffer { margin-top:20px; }

@@ -37,19 +37,19 @@ dataSource ;
 
   ngOnInit() {
     this.state = this.route.snapshot.params.state
-    console.log(this.state,typeof(this.state))
+    // console.log(this.state,typeof(this.state))
     this.httpClient.get("https://api.covid19india.org/state_district_wise.json").subscribe(data =>{
       var allTempData = data;
       // console.log(allTempData[this.state])
       allTempData = allTempData[this.state]
-      console.log(allTempData)
+      // console.log(allTempData)
       for(const atemp in allTempData){
         this.allProcessedData.push(allTempData[atemp])
       }
-       console.log(this.allProcessedData[0])
+      //  console.log(this.allProcessedData[0])
        var x = this.allProcessedData[0]
        for(const atemp in x){
-        console.log(typeof(atemp),atemp)
+        // console.log(typeof(atemp),atemp)
         Object.assign(x[atemp],{city:atemp})
         this.ELEMENT_DATA.push(x[atemp])
       }
@@ -57,7 +57,7 @@ dataSource ;
       this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log(this.ELEMENT_DATA)
+      // console.log(this.ELEMENT_DATA)
     
     })
   }

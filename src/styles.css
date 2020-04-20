@@ -14,8 +14,16 @@ footer.page-footer {
     bottom: 0;
     color: #fff;
 }
-ooter.page-footer .footer-copyright {
+footer.page-footer .footer-copyright {
     overflow: hidden;
     color: rgba(255,255,255,0.6);
     background-color: rgba(0,0,0,0.2);
 }
+
+body {
+    height: 100%;
+  }
+
+  /* body {
+    background: linear-gradient(to right, rgb(215, 219, 224), rgb(193, 202, 207));
+  } */

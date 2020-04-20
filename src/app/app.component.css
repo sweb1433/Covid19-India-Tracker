@@ -1,5 +1,13 @@
-mat-grid-tile {
-    background: lightblue;
+
+
+  
+
+  h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    /* padding: 80px 50px; */
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
   }
 
   

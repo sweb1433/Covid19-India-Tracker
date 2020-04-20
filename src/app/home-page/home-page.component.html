@@ -1,8 +1,3 @@
- 
-
-
-
-
 <div class="container"> 
     
     <!-- cards -->
@@ -114,15 +109,15 @@
         
             </mat-cell>
           </ng-container>
-        
-          <ng-container matColumnDef="lastupdatedtime">
+          
+          <ng-container class="d-none d-md-block" matColumnDef="lastupdatedtime">
             <mat-header-cell *matHeaderCellDef> Last Update </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{ element.lastupdatedtime }} </mat-cell>
           </ng-container>        
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
         </mat-table>
-        <mat-paginator [pageSizeOptions]="[8, 15, 20]"showFirstLastButtons>
+        <mat-paginator  [pageSizeOptions]="[8, 15, 20]"showFirstLastButtons>
         </mat-paginator>
       </div>
     </div>

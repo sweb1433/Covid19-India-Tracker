@@ -14,6 +14,7 @@ import { DisctrictWiseComponent } from './disctrict-wise/disctrict-wise.componen
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutComponent } from './about/about.component';
 import { HelpfulComponent } from './helpful/helpful.component';
+import { FAQComponent } from './faq/faq.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -21,7 +22,8 @@ const routes = [
    {path: '', component : HomePageComponent}, 
   {path: 'district/:state', component : DisctrictWiseComponent},
   {path: 'about', component : AboutComponent},
-  {path: 'links', component : HelpfulComponent}
+  {path: 'links', component : HelpfulComponent},
+  {path: 'FAQ', component : FAQComponent}
 ]
 
 @NgModule({
@@ -30,7 +32,8 @@ const routes = [
     DisctrictWiseComponent,
     HomePageComponent,
     AboutComponent,
-    HelpfulComponent
+    HelpfulComponent,
+    FAQComponent
   ],
   imports: [
     BrowserModule,
