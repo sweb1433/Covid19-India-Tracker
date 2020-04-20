@@ -46,3 +46,9 @@ h1 {
 .retroshd:hover {
     text-decoration: none;
 }
+
+.cdk-column-active{
+
+  margin-left: 11px;
+
+}

@@ -36,7 +36,7 @@ export class HomePageComponent implements OnInit {
                                 'active',
                                 'deaths', 
                                 'recovered',
-                                'lastupdatedtime',
+                                // 'lastupdatedtime',
                                 // 'deltaconfirmed',
                                 // 'deltadeaths',
                                 // 'deltarecovered',                                                              
