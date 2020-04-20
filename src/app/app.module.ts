@@ -11,18 +11,23 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material';
 import {MatSortModule} from '@angular/material/sort';
 import { DisctrictWiseComponent } from './disctrict-wise/disctrict-wise.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AboutComponent } from './about/about.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 const routes = [
-  // {path: '', component : AppComponent}, 
-  {path: 'district/:state', component : DisctrictWiseComponent}
+   {path: '', component : HomePageComponent}, 
+  {path: 'district/:state', component : DisctrictWiseComponent},
+  {path: 'about', component : AboutComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisctrictWiseComponent
+    DisctrictWiseComponent,
+    HomePageComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

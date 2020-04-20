@@ -2,14 +2,4 @@ mat-grid-tile {
     background: lightblue;
   }
 
-  .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
-
-  table tbody td .deltas svg {
-    width: 9px;
-    height: 9px;
-    stroke-width: 3;
-    vertical-align: -.25px;
-}
-.top-buffer { margin-top:20px; }
+  

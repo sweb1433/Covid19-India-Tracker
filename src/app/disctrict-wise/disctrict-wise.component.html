@@ -1,1 +1,20 @@
-<p>disctrict-wise works!</p>
+<div class="container">
+<div class="row top-buffer">
+    <div class="col-sm-9 col-md-9 col-xs-12" style="margin-left: -14px;">
+      <mat-table  [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="city">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+          <mat-cell *matCellDef="let element" > {{ element.city }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="cases">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Cases </mat-header-cell>
+            <mat-cell *matCellDef="let element" > {{ element.confirmed }} </mat-cell>
+          </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[8, 15, 20]"showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+</div>

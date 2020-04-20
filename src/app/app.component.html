@@ -1,132 +1,85 @@
- 
+<!-- Header Starts -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Covid19India</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-
-
-<div class="container-fluid">
-  <!-- cards -->
-  <div class="row">
-    <div class="card-deck">
-      <div class="card">
-        <div class="card-body text-danger font-weight-bold">
-          <h5 class="card-title">Total Confirmed</h5>
-          <p class="card-text "><small>[+{{totalCase.deltaconfirmed}}]</small></p>
-          <p class="card-text ">{{totalCase.confirmed}}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last Update : {{totalCase.lastupdatedtime}}</small>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body text-primary font-weight-bold" >
-          <h5 class="card-title">Active Cases</h5>
-          <p class="card-text ">{{totalCase.active}}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last Update : {{totalCase.lastupdatedtime}}</small>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body text-success font-weight-bold">
-          <h5 class="card-title">Recovered</h5>
-          <p class="card-text "><small>[+{{totalCase.deltarecovered}}]</small></p>
-          <p class="card-text ">{{totalCase.recovered}}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last Update : {{totalCase.lastupdatedtime}}</small>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body text-secondary font-weight-bold">
-          <h5 class="card-title">Diceased</h5>
-          <p class="card-text "><small>[+{{totalCase.deltadeaths}}]</small></p>
-          <p class="card-text ">{{totalCase.deaths}}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last Update : {{totalCase.lastupdatedtime}}</small>
-        </div>
-      </div>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About/FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Disabled</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
   </div>
-  <!-- !Cards -->
- 
-  <!-- Table -->
-  <div class="row top-buffer">
-    <div class="col-sm-9 col-md-9 col-xs-12" style="margin-left: -14px;">
-      <mat-table  [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-        <!-- <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field> -->
-      
-        <ng-container matColumnDef="state">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
-          <mat-cell *matCellDef="let element" > {{ element.state }} </mat-cell>
-          <!-- [routerLink]="['/district',element.statecode]" style="cursor: pointer" -->
-        </ng-container>
-      
-        <ng-container matColumnDef="confirmed" >
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Total Confirmed </mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            <span *ngIf="element.deltaconfirmed > 0 " class="deltas" style="color: rgb(255, 7, 58);font-size: 10px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="5 12 12 5 19 12"></polyline>
-              </svg>
-               {{ element.deltaconfirmed }} 
-            </span> 
-            {{ element.confirmed }} 
-          </mat-cell>
-        </ng-container>
-      
-        <ng-container matColumnDef="active" >
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Active Cases </mat-header-cell>
-          <mat-cell *matCellDef="let element">  
-            {{ element.active }} </mat-cell>
-        </ng-container>
-       
-        <ng-container matColumnDef="deaths">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Deaths </mat-header-cell>
-          <mat-cell  *matCellDef="let element">
-            <span *ngIf="element.deltadeaths > 0 " class="deltas" style="color: rgb(255, 7, 58);font-size: 10px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="5 12 12 5 19 12"></polyline>
-              </svg>
-              {{element.deltadeaths}} 
-            </span>   
-            {{ element.deaths }} </mat-cell>
-        </ng-container>
-       
-        <ng-container matColumnDef="recovered">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Recovered </mat-header-cell>
-          <mat-cell *matCellDef="let element"> 
-            <span *ngIf="element.deltarecovered > 0 " class="deltas" style="color: rgb(255, 7, 58);font-size: 10px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="5 12 12 5 19 12"></polyline>
-              </svg>
-              {{ element.deltarecovered }}
-            </span>   
-            {{ element.recovered }} 
-      
-          </mat-cell>
-        </ng-container>
-      
-        <ng-container matColumnDef="lastupdatedtime">
-          <mat-header-cell *matHeaderCellDef> Last Update </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.lastupdatedtime }} </mat-cell>
-        </ng-container>        
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-      </mat-table>
-      <mat-paginator [pageSizeOptions]="[8, 15, 20]"showFirstLastButtons>
-      </mat-paginator>
-    </div>
-  </div>
-  <!-- !table -->
-</div>
+</nav>
+<!-- Header Ends -->
 
-<ul>
-  <li><a [routerLink]="['/district','hahaha']">AAAAAAAAAAA</a></li>
-</ul>
 <router-outlet></router-outlet>
+
+<!-- Footer Starts -->
+<section>
+
+  <!-- Footer -->
+  <footer class="page-footer font-small teal pt-4">
+
+    <!-- Footer Text -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase font-weight-bold">We stand with everyone fighting on the frontlines</h5>
+          <p>Social distancing is an opportunity to check if you can tolerate your own company.
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mb-md-0 mb-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
+          <p>The world is mine, its problems are mine.</p>
+
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Text -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="background-color: #000000d2;">© 2020 Copyright:
+      <a href="https://about.me/sushantverma" target="_blank"> Sushant Verma</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+</section>
+<!-- Footer Ends -->
+
+
+
