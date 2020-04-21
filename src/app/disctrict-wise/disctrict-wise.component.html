@@ -1,14 +1,14 @@
 <div class="container">
 <div class="row d-flex justify-content-center top-buffer">
     <div class="col-sm-9 col-md-4 col-xs-12" style="margin-left: -14px;">
-      <h4>{{state}} </h4>
+      <div class="p-3 mb-2 bg-danger text-center text-white">{{state}} as today.</div>
       <mat-table  [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="city">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef class="text-primary" mat-sort-header><strong> City</strong> </mat-header-cell>
           <mat-cell *matCellDef="let element" > {{ element.city }} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="cases">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Cases </mat-header-cell>
+            <mat-header-cell class="text-danger" *matHeaderCellDef mat-sort-header> Cases </mat-header-cell>
             <mat-cell *matCellDef="let element" > {{ element.confirmed }} </mat-cell>
           </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

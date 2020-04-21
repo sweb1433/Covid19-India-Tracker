@@ -4,8 +4,18 @@
     <div class="row">
       <div class="col d-flex justify-content-center">
       <div class="card-deck">
-        <div class="card">
-          <div class="card-body text-danger font-weight-bold">
+          <div *ngIf="todayData" class="card border-warning">
+            <div class="card-body text-warning  font-weight-bold">
+              <h5 class="card-title">All Tests</h5>
+              <p class="card-text ">Today's Tests: {{todayData.samplereportedtoday}}</p>
+              <p class="card-text ">Total Tests: {{todayData.totalsamplestested}}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last Update : {{todayData.updatetimestamp}}</small>
+            </div>
+          </div>
+        <div class="card border-danger">
+          <div class="card-body text-danger  font-weight-bold">
             <h5 class="card-title">Total Confirmed</h5>
             <p class="card-text "><small>[+{{totalCase.deltaconfirmed}}]</small></p>
             <p class="card-text ">{{totalCase.confirmed}}</p>
@@ -14,8 +24,8 @@
             <small class="text-muted">Last Update : {{totalCase.lastupdatedtime}}</small>
           </div>
         </div>
-        <div class="card">
-          <div class="card-body text-primary font-weight-bold" >
+        <div class="card border-primary">
+          <div class="card-body text-primary  font-weight-bold" >
             <h5 class="card-title">Active Cases</h5>
             <p class="card-text ">{{totalCase.active}}</p>
           </div>
@@ -23,8 +33,8 @@
             <small class="text-muted">Last Update : {{totalCase.lastupdatedtime}}</small>
           </div>
         </div>
-        <div class="card">
-          <div class="card-body text-success font-weight-bold">
+        <div class="card border-success">
+          <div class="card-body text-success  font-weight-bold">
             <h5 class="card-title">Recovered</h5>
             <p class="card-text "><small>[+{{totalCase.deltarecovered}}]</small></p>
             <p class="card-text ">{{totalCase.recovered}}</p>
@@ -33,8 +43,8 @@
             <small class="text-muted">Last Update : {{totalCase.lastupdatedtime}}</small>
           </div>
         </div>
-        <div class="card">
-          <div class="card-body text-secondary font-weight-bold">
+        <div class="card border-secondary">
+          <div class="card-body text-secondary  font-weight-bold">
             <h5 class="card-title">Diceased</h5>
             <p class="card-text "><small>[+{{totalCase.deltadeaths}}]</small></p>
             <p class="card-text ">{{totalCase.deaths}}</p>
@@ -47,23 +57,23 @@
       </div>
     </div>
     <!-- !Cards -->
-   
     <!-- Table -->
     <div class="row d-flex justify-content-center top-buffer">
       <div class="col-sm-9 col-md-9 col-xs-12" >
+        <div class="p-3 mb-2 bg-dark text-center text-white top-buffer">Note: Click On any State below to get district wise data.</div>
         <mat-table  [dataSource]="dataSource" class="mat-elevation-z8" matSort>
           <!-- <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
           </mat-form-field> -->
         
           <ng-container matColumnDef="state">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef class="text-primary" mat-sort-header> State </mat-header-cell>
             <mat-cell *matCellDef="let element"style="cursor: pointer"> <a [routerLink]="['/district',element.state]">{{ element.state }}</a> </mat-cell>
             <!-- [routerLink]="['/district',element.statecode]" style="cursor: pointer" -->
           </ng-container>
         
           <ng-container matColumnDef="confirmed" >
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Total Confirmed </mat-header-cell>
+            <mat-header-cell class="text-danger" *matHeaderCellDef mat-sort-header> Total Confirmed </mat-header-cell>
             <mat-cell *matCellDef="let element">
               <span *ngIf="element.deltaconfirmed > 0 " class="deltas" style="color: rgb(255, 7, 58);font-size: 10px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -77,13 +87,13 @@
           </ng-container>
         
           <ng-container matColumnDef="active" >
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Active Cases </mat-header-cell>
+            <mat-header-cell class="text-warning" *matHeaderCellDef mat-sort-header> Active Cases </mat-header-cell>
             <mat-cell *matCellDef="let element">  
               {{ element.active }} </mat-cell>
           </ng-container>
          
           <ng-container matColumnDef="deaths">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Deaths </mat-header-cell>
+            <mat-header-cell class="text-danger" *matHeaderCellDef mat-sort-header> Deaths </mat-header-cell>
             <mat-cell  *matCellDef="let element">
               <span *ngIf="element.deltadeaths > 0 " class="deltas" style="color: rgb(255, 7, 58);font-size: 10px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -96,7 +106,7 @@
           </ng-container>
          
           <ng-container matColumnDef="recovered">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Recovered </mat-header-cell>
+            <mat-header-cell class="text-success" *matHeaderCellDef mat-sort-header> Recovered </mat-header-cell>
             <mat-cell *matCellDef="let element"> 
               <span *ngIf="element.deltarecovered > 0 " class="deltas" style="color: rgb(255, 7, 58);font-size: 10px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

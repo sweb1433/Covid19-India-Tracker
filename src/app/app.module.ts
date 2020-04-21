@@ -15,6 +15,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AboutComponent } from './about/about.component';
 import { HelpfulComponent } from './helpful/helpful.component';
 import { FAQComponent } from './faq/faq.component';
+import { DateTrackerComponent } from './date-tracker/date-tracker.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -23,7 +24,8 @@ const routes = [
   {path: 'district/:state', component : DisctrictWiseComponent},
   {path: 'about', component : AboutComponent},
   {path: 'links', component : HelpfulComponent},
-  {path: 'FAQ', component : FAQComponent}
+  {path: 'FAQ', component : FAQComponent},
+  {path: 'dateTracker', component : DateTrackerComponent}
 ]
 
 @NgModule({
@@ -33,7 +35,8 @@ const routes = [
     HomePageComponent,
     AboutComponent,
     HelpfulComponent,
-    FAQComponent
+    FAQComponent,
+    DateTrackerComponent
   ],
   imports: [
     BrowserModule,

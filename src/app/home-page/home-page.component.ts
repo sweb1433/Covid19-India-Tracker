@@ -30,6 +30,7 @@ export class HomePageComponent implements OnInit {
   allArrayData: any = [];
   allArrayObjStates: any = [];
   ELEMENT_DATA: PeriodicElement[] = [];
+  todayData: any;
   displayedColumns: string[] = [
                                 'state',
                                 'confirmed',
@@ -53,19 +54,18 @@ export class HomePageComponent implements OnInit {
   
     this.httpClient.get("https://api.covid19india.org/data.json").subscribe(data =>{
       var allTempData = data;
-      console.log(allTempData)
       for(const atemp in allTempData){
         this.allArrayData.push(allTempData[atemp])
       }
       this.allArrayObjStates = this.allArrayData[1]
       this.ELEMENT_DATA = this.allArrayData[1];
       this.totalCase = this.ELEMENT_DATA[0];
+      this.todayData = this.allArrayData[2].pop()
+      console.log(this.todayData)
       this.ELEMENT_DATA.shift();
-      // console.log(this.totalCase)
       this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-       console.log(this.ELEMENT_DATA)
     
     })
   }
