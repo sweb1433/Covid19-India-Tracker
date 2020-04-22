@@ -22,6 +22,7 @@ export class DisctrictWiseComponent implements OnInit {
   allProcessedData:any = [];
   ELEMENT_DATA: PeriodicElement[] = [];
   allCity:any = [];
+  allTempData;
   displayedColumns: string[] = [
     'city',
     'cases'
@@ -39,12 +40,12 @@ dataSource ;
     this.state = this.route.snapshot.params.state
     // console.log(this.state,typeof(this.state))
     this.httpClient.get("https://api.covid19india.org/state_district_wise.json").subscribe(data =>{
-      var allTempData = data;
+      this.allTempData = data;
       // console.log(allTempData[this.state])
-      allTempData = allTempData[this.state]
+      this.allTempData = this.allTempData[this.state]
       // console.log(allTempData)
-      for(const atemp in allTempData){
-        this.allProcessedData.push(allTempData[atemp])
+      for(const atemp in this.allTempData){
+        this.allProcessedData.push(this.allTempData[atemp])
       }
       //  console.log(this.allProcessedData[0])
        var x = this.allProcessedData[0]

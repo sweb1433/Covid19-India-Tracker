@@ -1,9 +1,12 @@
 <div class="container"> 
-    
     <!-- cards -->
     <div class="row">
       <div class="col d-flex justify-content-center">
-      <div class="card-deck">
+        <!-- <mat-spinner *ngIf="!allTempData"></mat-spinner> -->
+        <div *ngIf="!allTempData" class="spinner-border text-dark" role="status">
+          <span class="sr-only" >Loading...</span>
+        </div>
+      <div *ngIf="allTempData" class="card-deck">
           <div *ngIf="todayData" class="card border-warning">
             <div class="card-body text-warning  font-weight-bold">
               <h5 class="card-title">All Tests</h5>
@@ -56,12 +59,13 @@
       </div>
       </div>
     </div>
-    <!-- !Cards -->
+    <!-- !Cards --> 
+
     <!-- Table -->
-    <div class="row d-flex justify-content-center top-buffer">
-      <div class="col-sm-9 col-md-9 col-xs-12" >
-        <div class="p-3 mb-2 bg-dark text-center text-white top-buffer">Note: Click On any State below to get district wise data.</div>
-        <mat-table  [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <div  class="row d-flex justify-content-center top-buffer">
+      <div  class="col-sm-9 col-md-9 col-xs-12" >
+        <div *ngIf="allTempData" class="p-3 mb-2 bg-dark text-center text-white top-buffer">Note: Click On any State below to get district wise data.</div>
+        <mat-table  *ngIf="allTempData" [dataSource]="dataSource" class="mat-elevation-z8" matSort>
           <!-- <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
           </mat-form-field> -->

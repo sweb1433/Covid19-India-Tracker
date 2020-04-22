@@ -27,6 +27,7 @@ export class DateTrackerComponent implements OnInit {
   allArrayObjStates: any = [];
   ELEMENT_DATA: PeriodicElement[] = [];
   todayData: any;
+  allTempData;
   displayedColumns: string[] = [
     'updatetimestamp',
     'samplereportedtoday',
@@ -43,9 +44,9 @@ export class DateTrackerComponent implements OnInit {
    ngOnInit(){
   
     this.httpClient.get("https://api.covid19india.org/data.json").subscribe(data =>{
-      var allTempData = data;
-      for(const atemp in allTempData){
-        this.allArrayData.push(allTempData[atemp])
+      this.allTempData = data;
+      for(const atemp in this.allTempData){
+        this.allArrayData.push(this.allTempData[atemp])
       }
       this.allArrayObjStates = this.allArrayData[1]
       this.ELEMENT_DATA = this.allArrayData[2];

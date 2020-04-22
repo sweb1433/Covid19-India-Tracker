@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { HelpfulComponent } from './helpful/helpful.component';
 import { FAQComponent } from './faq/faq.component';
 import { DateTrackerComponent } from './date-tracker/date-tracker.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -47,7 +48,8 @@ const routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatProgressSpinnerModule
     // FontAwesomeModule
     
     
