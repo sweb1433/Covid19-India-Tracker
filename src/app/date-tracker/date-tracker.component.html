@@ -8,7 +8,7 @@
       </div>
     </div>
   </div>
-    <!-- Table -->
+    <!-- Table --> 
     <div class="row d-flex justify-content-center top-buffer">
       <div class="col-sm-9 col-md-9 col-xs-12" >
         <div *ngIf="allTempData" class="p-3 mb-2 bg-dark text-center text-white">Daily Tracker</div>
@@ -17,7 +17,7 @@
           <ng-container matColumnDef="updatetimestamp">
               <mat-header-cell class="text-success" *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
               <mat-cell *matCellDef="let element">   
-                {{ element.updatetimestamp }} 
+                {{ element.updatetimestamp | dateSlicer }} 
               </mat-cell>
           </ng-container>
 

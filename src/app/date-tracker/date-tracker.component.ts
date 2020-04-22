@@ -51,7 +51,7 @@ export class DateTrackerComponent implements OnInit {
       this.allArrayObjStates = this.allArrayData[1]
       this.ELEMENT_DATA = this.allArrayData[2];
       this.ELEMENT_DATA.sort().reverse()
-      console.log(this.ELEMENT_DATA)
+      // console.log(this.ELEMENT_DATA)
       
       this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;

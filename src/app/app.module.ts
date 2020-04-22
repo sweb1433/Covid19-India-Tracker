@@ -17,6 +17,8 @@ import { HelpfulComponent } from './helpful/helpful.component';
 import { FAQComponent } from './faq/faq.component';
 import { DateTrackerComponent } from './date-tracker/date-tracker.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DateSlicer } from 'src/custom-pipes/date-slicer.pipe';
+
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -37,7 +39,8 @@ const routes = [
     AboutComponent,
     HelpfulComponent,
     FAQComponent,
-    DateTrackerComponent
+    DateTrackerComponent,
+    DateSlicer
   ],
   imports: [
     BrowserModule,

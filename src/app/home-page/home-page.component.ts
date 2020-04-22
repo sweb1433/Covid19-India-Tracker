@@ -62,7 +62,7 @@ export class HomePageComponent implements OnInit {
       this.ELEMENT_DATA = this.allArrayData[1];
       this.totalCase = this.ELEMENT_DATA[0];
       this.todayData = this.allArrayData[2].pop()
-      console.log(this.todayData)
+      // console.log(this.todayData)
       this.ELEMENT_DATA.shift();
       this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
