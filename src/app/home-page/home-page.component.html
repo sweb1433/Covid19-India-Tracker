@@ -64,8 +64,8 @@
     <!-- Table -->
     <div  class="row d-flex justify-content-center top-buffer">
       <div  class="col-sm-9 col-md-9 col-xs-12" >
-        <div *ngIf="allTempData" class="p-3 mb-2 bg-dark text-center text-white top-buffer">Note: Click On any State below to get district wise data.</div>
-        <mat-table  *ngIf="allTempData" [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <div  class="p-3 mb-2 bg-dark text-center text-white top-buffer">Note: Click On any State below to get district wise data.</div>
+        <mat-table   [dataSource]="dataSource" class="mat-elevation-z8" matSort>
           <!-- <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
           </mat-form-field> -->

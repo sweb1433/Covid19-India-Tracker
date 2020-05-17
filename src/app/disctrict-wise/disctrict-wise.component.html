@@ -10,7 +10,7 @@
   <div class="row d-flex justify-content-center top-buffer">
     <div class="col-sm-9 col-md-4 col-xs-12" style="margin-left: -14px;">
       <div class="p-3 mb-2 bg-danger text-center text-white">{{state}} as today.</div>
-      <mat-table *ngIf="allTempData"  [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <mat-table   [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="city">
           <mat-header-cell *matHeaderCellDef class="text-primary" mat-sort-header><strong> City</strong> </mat-header-cell>
           <mat-cell *matCellDef="let element" > {{ element.city }} </mat-cell>
